@@ -19,10 +19,9 @@
                 <h1 class="m-0">
                     {{mobileObj.model}}
                     <small class="badge" [ngClass]="{
-                       'badge-sucess':mobileObj.rating>=5,
-                       'badge-warning':mobileObj.rating>=4 && mobileObj.rating < 3,
-                       'badge-danger':mobileObj.rating < 2
-
+                        'badge-success': mobileObj.rating > 3,
+                        'badge-warning': mobileObj.rating <= 3 && mobileObj.rating > 2,
+                        'badge-danger': mobileObj.rating <= 2
                     }">{{mobileObj.rating}}</small>
                 </h1>
                 <h2>
@@ -42,7 +41,7 @@
                             <del>
                                 {{mobileObj.price +(mobileObj.price * .1) |currency:"INR"}}
                             </del>
-                            <p *ngIf="!mobileObj.isAvailable">only 3 items left</p>
+                            <p *ngIf="!mobileObj.isAvailable">No product is left</p>
                         </small>
                     </div>
                 </h2>
