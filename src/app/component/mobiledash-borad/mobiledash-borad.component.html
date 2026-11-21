@@ -1,0 +1,14 @@
+<h1 class="bg-info text-center p-2">Mobile</h1>
+
+<div class="container mt-5">
+    <div class="row" *ngIf="mobilesArr.length > 0  ; else noMobiles">
+        <div class="col-md-10 offset-md-1 my-3" *ngFor="let mobile of mobilesArr">
+
+            <app-mobilecard [mobileObj]="mobile"></app-mobilecard>
+        </div>
+    </div>
+</div>
+
+<ng-template #noMobiles>
+    <p class="alert alert-warning">No Mobile is added yet !!! </p>
+</ng-template>

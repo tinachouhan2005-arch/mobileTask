@@ -1,0 +1,57 @@
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="row" [ngClass]="{'noProduct':!mobileObj.isAvailable}">
+            <div class="col-md-3">
+                <!-- <div class="img-mobile" *ngIf="mobileObj.image ; else noImg">
+                    <img [src]="mobileObj.image" [alt]="mobileObj.brand">
+                </div>
+                <ng-template #noImg>
+                    <p class="alert alrt-warning">No Product Img</p>
+                </ng-template> -->
+                <div class="img-mobile">
+                    <img
+                        [src]="mobileObj.image || 'data:image/png;base64,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'">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h1 class="m-0">
+                    {{mobileObj.model}}
+                    <small class="badge" [ngClass]="{
+                       'badge-sucess':mobileObj.rating>=5,
+                       'badge-warning':mobileObj.rating>=4 && mobileObj.rating < 3,
+                       'badge-danger':mobileObj.rating < 2
+
+                    }">{{mobileObj.rating}}</small>
+                </h1>
+                <h2>
+                    Feature:-
+                </h2>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" *ngFor="let feature of mobileObj.features">
+                        {{feature}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h2>
+                    {{mobileObj.price|currency:"INR"}}
+                    <div>
+                        <small>
+                            <del>
+                                {{mobileObj.price +(mobileObj.price * .1) |currency:"INR"}}
+                            </del>
+                            <p *ngIf="!mobileObj.isAvailable">only 3 items left</p>
+                        </small>
+                    </div>
+                </h2>
+            </div>
+        </div>
+        <div>
+            <p *ngIf="!mobileObj.isAvailable" class="text-danger noProductMsg text-center">
+                Product is not available.
+            </p>
+        </div>
+    </div>
+</div>
